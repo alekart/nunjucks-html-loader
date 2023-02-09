@@ -1,15 +1,25 @@
 {
-  "name": "nunj-loader",
+  "name": "njk-html-loader",
   "version": "1.0.0",
-  "description": "webpack-nunjucks-loader",
+  "description": "Nunjucks to static HTML loader for Webpack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --stats-children",
+    "build": "webpack --stats-children"
   },
-  "author": "",
+  "author": "alekart",
   "license": "ISC",
   "dependencies": {
+    "glob": "^8.1.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "lodash": "^4.17.21",
+    "nunjucks": "^3.2.3",
+    "schema-utils": "^4.0.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^4.11.1"
   }
 }
