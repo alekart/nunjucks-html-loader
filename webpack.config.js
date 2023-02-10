@@ -23,7 +23,7 @@ module.exports = {
         use: [
           'html-loader',
           {
-            loader: path.resolve('src/loader.js'),
+            loader: path.resolve(__dirname, 'src/loader.js'),
             options: {
               templates: path.resolve(__dirname, 'demo/'),
               locale: 'fr',
