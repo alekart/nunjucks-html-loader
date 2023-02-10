@@ -5,6 +5,7 @@ const glob = require('glob');
 module.exports = {
   //...
   mode: 'development',
+  entry: path.join(__dirname, 'demo/index.js'),
   devServer: {
     open: true,
     hot: false,
