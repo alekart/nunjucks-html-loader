@@ -20,9 +20,9 @@ module.exports = {
       {
         test: /\.njk$/,
         use: [
-          'html-src',
+          'html-loader',
           {
-            loader: path.resolve('src/src.js'),
+            loader: path.resolve('src/loader.js'),
             options: {
               templates: path.resolve(__dirname, 'demo/'),
               locale: 'fr',
