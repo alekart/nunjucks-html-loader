@@ -1,6 +1,6 @@
 {
   "name": "@alekart/nunjucks-html-loader",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "Nunjucks to static HTML loader for Webpack",
   "license": "MIT",
   "publishConfig": {
