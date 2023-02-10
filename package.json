@@ -2,26 +2,33 @@
   "name": "@alekart/nunjucks-html-loader",
   "version": "1.0.0",
   "description": "Nunjucks to static HTML loader for Webpack",
-  "license": "ISC",
-  "repository": "https://github.com/alekart/nunjucks-html-loader.git",
-  "author": "alek",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alekart/nunjucks-html-loader.git",
+    "directory": "@alekart/nunjucks-html-loader"
+  },
+  "author": "alekart",
   "homepage": "https://github.com/alekart/nunjucks-html-loader",
   "bugs": "https://github.com/alekart/nunjucks-html-loader/issues",
   "main": "index.js",
   "engines": {
-    "node": ">= 16"
+    "node": ">= 16.19.0"
   },
   "scripts": {
     "start": "npm run build -- -w",
     "clean": "del-cli dist",
     "prebuild": "npm run clean",
-    "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
-    "commitlint": "commitlint --from=master",
+    "build": "NODE_ENV=production babel src -d dist --copy-files",
+    "commitlint": "commitlint --from=main",
     "security": "npm audit",
     "lint:prettier": "prettier \"{**/*,*}.{js,json,md,yml,css,ts}\" --list-different",
     "lint:js": "eslint --cache .",
     "lint": "npm-run-all -l -p \"lint:**\"",
-    "test:only": "cross-env NODE_ENV=test jest",
+    "test:only": "NODE_ENV=test jest",
     "test:watch": "npm run test:only -- --watch",
     "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
     "pretest": "npm run lint",
@@ -68,6 +75,6 @@
     "webpack": "^5.75.0"
   },
   "keywords": [
-    "webpack", "loader", "nunjcuks"
+    "webpack", "loader", "nunjcuks", "template", "html-webpack-plugin", "html-loader"
   ]
 }
