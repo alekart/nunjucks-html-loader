@@ -34,8 +34,9 @@
     "pretest": "npm run lint",
     "test": "npm run test:coverage",
     "copy-package-info": "node ./scripts/package-for-release.js",
-    "prepare": "npm run build",
-    "release": "standard-version"
+    "prepare": "npm run build && npm run copy-package-info",
+    "release": "standard-version",
+    "publish": "npm run prepare && cd dist && npm publish && cd .."
   },
   "files": [
     "dist/",
