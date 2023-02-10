@@ -1,6 +1,6 @@
 {
   "name": "@alekart/nunjucks-html-loader",
-  "version": "1.0.2-alpha.0",
+  "version": "1.0.2",
   "description": "Nunjucks to static HTML loader for Webpack",
   "license": "MIT",
   "publishConfig": {
@@ -23,7 +23,7 @@
     "clean": "del-cli dist",
     "prebuild": "npm run clean",
     "build": "NODE_ENV=production babel src -d dist --copy-files",
-    "commitlint": "commitlint --from=master",
+    "commitlint": "commitlint --from=main",
     "security": "npm audit",
     "lint:prettier": "prettier \"{**/*,*}.{js,json,md,yml,css,ts}\" --list-different",
     "lint:js": "eslint --cache .",
