@@ -34,8 +34,7 @@
     "pretest": "npm run lint",
     "test": "npm run test:coverage",
     "prepare": "npm run build",
-    "release": "standard-version",
-    "defaults": "webpack-defaults"
+    "release": "standard-version"
   },
   "files": [
     "dist/",
@@ -46,7 +45,10 @@
     "webpack": "^4.0.0 || ^5.0.0"
   },
   "dependencies": {
+    "glob": "^8.1.0",
     "loader-utils": "^3.2.1",
+    "lodash": "^4.17.21",
+    "nunjucks": "^3.2.3",
     "schema-utils": "^4.0.0"
   },
   "devDependencies": {
@@ -75,6 +77,11 @@
     "webpack": "^5.75.0"
   },
   "keywords": [
-    "webpack", "loader", "nunjcuks", "template", "html-webpack-plugin", "html-loader"
+    "webpack",
+    "loader",
+    "nunjcuks",
+    "template",
+    "html-webpack-plugin",
+    "html-loader"
   ]
 }
