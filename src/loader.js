@@ -8,7 +8,10 @@ module.exports = function (source) {
   const defaultSrcPath = 'src';
   const templatesPath = path.resolve(this.rootContext, options.templates || defaultSrcPath);
   const dataPath = path.resolve(this.rootContext, options.dataPath || `${defaultSrcPath}/data`);
-  const data = getData(this, dataPath);
+  const data = {
+    ...(options.data || {}),
+    ...getData(this, dataPath),
+  };
 
   const nunjucksOptions = {
     autoescape: true, // controls if output with dangerous characters are escaped automatically. See Autoescaping

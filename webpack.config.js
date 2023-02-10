@@ -9,9 +9,9 @@ module.exports = {
     open: true,
     hot: false,
     static: [{
-      directory: path.join(__dirname, 'src/scripts'),
+      directory: path.join(__dirname, 'demo/scripts'),
     }, {
-      directory: path.join(__dirname, 'src/scripts/dist'),
+      directory: path.join(__dirname, 'demo/scripts/dist'),
     }],
     port: 9000,
   },
@@ -20,14 +20,15 @@ module.exports = {
       {
         test: /\.njk$/,
         use: [
-          'html-loader',
+          'html-src',
           {
-            loader: path.resolve('loader/loader.js'),
+            loader: path.resolve('src/src.js'),
             options: {
-              templates: path.resolve(__dirname, 'src/'),
+              templates: path.resolve(__dirname, 'demo/'),
               locale: 'fr',
-              dataPath: path.resolve(__dirname, 'src/data'),
+              dataPath: path.resolve(__dirname, 'demo/data'),
               data: {
+
               },
               nunjucks: {
                 throwOnUndefined: true,
@@ -44,7 +45,7 @@ module.exports = {
 };
 
 function getNunjucksTemplates(htmlWebpackPluginOptions = {}) {
-  return glob.sync('src/!(_*).njk').map((fileName) => {
+  return glob.sync('demo/!(_*).njk').map((fileName) => {
     const templateName = path.basename(fileName).replace(/\.njk$/, '');
     return new HTMLWebpackPlugin({
       template: fileName,
