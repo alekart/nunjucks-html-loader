@@ -68,6 +68,6 @@
     "webpack": "^5.75.0"
   },
   "keywords": [
-    "webpack", "loader", "nunjcuks"
+    "webpack", "loader", "nunjcuks", "template", "html-webpack-plugin", "html-loader"
   ]
 }
