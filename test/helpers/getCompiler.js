@@ -1,5 +1,8 @@
 import path from 'path';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+import HTMLWebpackPlugin from 'html-webpack-plugin';
+
 import webpack from 'webpack';
 import { createFsFromVolume, Volume } from 'memfs';
 
@@ -12,13 +15,13 @@ export default (fixture, loaderOptions = {}, config = {}) => {
     output: {
       path: path.resolve(__dirname, '../outputs'),
       filename: '[name].bundle.js',
-      chunkFilename: '[name].chunk.js',
     },
     module: {
       rules: [
         {
-          test: /\.js$/i,
-          rules: [
+          test: /\.njk$/i,
+          use: [
+            'raw-loader',
             {
               loader: path.resolve(__dirname, '../../src'),
               options: loaderOptions || {},
@@ -27,7 +30,12 @@ export default (fixture, loaderOptions = {}, config = {}) => {
         },
       ],
     },
-    plugins: [],
+    plugins: [
+      new HTMLWebpackPlugin({
+        template: fixture,
+        filename: `${fixture.replace('.njk', '')}.html`,
+      }),
+    ],
     ...config,
   };
 

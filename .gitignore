@@ -290,3 +290,4 @@ Temporary Items
 /local
 /reports
 /node_modules
+test/__snapshots__

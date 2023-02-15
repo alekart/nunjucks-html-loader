@@ -1,21 +1,21 @@
-import {
-  compile,
-  execute,
-  getCompiler,
-  getErrors,
-  getWarnings,
-  readAsset,
-} from './helpers';
+import getCompiler from './helpers/getCompiler';
+import readAsset from './helpers/readAsset';
+import execute from './helpers/execute';
+import compile from './helpers/compile';
+import { getElement, loadDocument } from './helpers/element-is-present';
 
 describe('loader', () => {
   it('should work', async () => {
-    const compiler = getCompiler('simple.js');
+    const compiler = getCompiler('page.njk', {
+      data: {
+        variable1: 'value1',
+      },
+    });
     const stats = await compile(compiler);
+    const asset = readAsset('main.bundle.js', compiler, stats);
+    await execute(asset);
+    const doc = loadDocument('page.njk', compiler, stats);
 
-    expect(
-      execute(readAsset('main.bundle.js', compiler, stats))
-    ).toMatchSnapshot('result');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getElement('p', doc).textContent.trim()).toBe('value1');
   });
 });
