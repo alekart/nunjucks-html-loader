@@ -15,6 +15,33 @@
       "type": "object",
       "additionalProperties": true
     },
+    "globals": {
+      "type": "object",
+      "patternProperties": {
+        ".+": {
+          "type": "string"
+        }
+      },
+      "default": {}
+    },
+    "extensions": {
+      "type": "object",
+      "patternProperties": {
+        ".+": {
+          "type": "string"
+        }
+      },
+      "default": {}
+    },
+    "filters": {
+      "type": "object",
+      "patternProperties": {
+        ".+": {
+          "type": "string"
+        }
+      },
+      "default": {}
+    },
     "nunjucks": {
       "type": "object",
       "properties": {
