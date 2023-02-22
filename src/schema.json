@@ -19,7 +19,7 @@
       "type": "object",
       "patternProperties": {
         ".+": {
-          "type": "string"
+          "type": "function"
         }
       },
       "default": {}
@@ -28,7 +28,7 @@
       "type": "object",
       "patternProperties": {
         ".+": {
-          "type": "string"
+          "type": "function"
         }
       },
       "default": {}
@@ -37,7 +37,7 @@
       "type": "object",
       "patternProperties": {
         ".+": {
-          "type": "string"
+          "type": "function"
         }
       },
       "default": {}
