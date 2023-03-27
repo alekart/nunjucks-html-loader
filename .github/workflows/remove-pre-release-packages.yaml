@@ -1,0 +1,25 @@
+# Remove pre-release packages except last one
+on:
+  push:
+    tags:
+      - "*.*.*-next.*"
+      - "*.*.*-beta.*"
+      - "*.*.*-alpha.*"
+
+  repository_dispatch:
+    # Or on repository dispatch POST
+    types: 'delete-pre-release'
+
+jobs:
+  deletePackages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/delete-package-versions@v4
+        with:
+          package-name: 'nunjucks-html-loader'
+          package-type: 'npm'
+          min-versions-to-keep: 1
+          delete-only-pre-release-versions: 'true'

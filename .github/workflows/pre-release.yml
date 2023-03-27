@@ -1,0 +1,31 @@
+name: Publish "pre-release" packages
+on:
+  push:
+    tags:
+      - "*.*.*-next.*"
+      - "*.*.*-beta.*"
+      - "*.*.*-alpha.*"
+
+jobs:
+  releaseLibraries:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@alekart'
+      - run: npm install
+      - name: Get the version
+        run: echo "PCKG_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+      - run: npm run build && npm run copy-package-info $PCKG_VERSION
+      - run: cd dist && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -16,6 +16,8 @@ const take = [
   'keywords',
 ];
 
+const newVersion = process.argv[2];
+
 const newPackage = take.reduce((accum, property) => {
   const value = pckg[property];
   if (value) {
@@ -24,5 +26,9 @@ const newPackage = take.reduce((accum, property) => {
   }
   return accum;
 }, {});
+
+if (newVersion) {
+  newPackage.version = newVersion;
+}
 
 writeFileSync('dist/package.json', `${JSON.stringify(newPackage, null, 2)}\n`, 'utf-8');
