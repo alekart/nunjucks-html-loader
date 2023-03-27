@@ -17,28 +17,22 @@
     },
     "globals": {
       "type": "object",
-      "patternProperties": {
-        ".+": {
-          "type": "function"
-        }
+      "additionalProperties": {
+        "type": "string"
       },
       "default": {}
     },
     "extensions": {
       "type": "object",
-      "patternProperties": {
-        ".+": {
-          "type": "function"
-        }
+      "additionalProperties": {
+        "type": "string"
       },
       "default": {}
     },
     "filters": {
       "type": "object",
-      "patternProperties": {
-        ".+": {
-          "type": "function"
-        }
+      "additionalProperties": {
+        "type": "string"
       },
       "default": {}
     },
